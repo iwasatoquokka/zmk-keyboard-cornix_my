@@ -1,0 +1,170 @@
+/*
+ * Copyright (c) 2025 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <dt-bindings/zmk/mouse.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#define BASE 0
+#define LOWER 1
+#define RAISE 2
+#define ADJUST 3
+#define NAVI 4
+#define DEBUG 5
+#define BT 6
+
+// OS設定を日本語キーボードのまま使用するための変換定義
+#define JP_DQUOTE       AT                // "
+#define JP_AMPERSAND    CARET             // &
+#define JP_QUOTE        AMPERSAND          // '
+#define JP_EQUAL        UNDER              // =
+#define JP_CARET        EQUAL              // ^
+#define JP_YEN          0x89               // ¥
+#define JP_PLUS         COLON              // +
+#define JP_TILDE        PLUS               // ~
+#define JP_PIPE         LS(0x89)           // |
+#define JP_AT           LEFT_BRACKET      // @
+#define JP_COLON        SINGLE_QUOTE      // :
+#define JP_ASTERISK     DOUBLE_QUOTES     // *
+#define JP_BACKQUOTE    LEFT_BRACE        // `
+#define JP_UNDERSCORE   LS(0x87)          // _
+#define JP_LBRACKET     RIGHT_BRACKET     // [
+#define JP_RBRACKET     BACKSLASH         // ]
+#define JP_LPAREN       ASTERISK          // (
+#define JP_RPAREN       LEFT_PARENTHESIS  // )
+#define JP_LBRACE       RIGHT_BRACE        // {
+#define JP_RBRACE       PIPE              // }
+#define JP_KANA         LANGUAGE_1        // かな
+#define JP_EISU         LANGUAGE_2        // 英数
+#define JP_HANZEN       GRAVE             // 半角/全角
+
+&mt {
+    flavor = "balanced";
+    quick-tap-ms = <0>;
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        BT_reset {
+            bindings = <&bt BT_CLR>;
+            key-positions = <1 5>;
+            layers = <ADJUST>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <14 15>;
+            layers = <BASE>;
+        };
+
+        dq {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <22 21>;
+            layers = <BASE>;
+        };
+    };
+
+    behaviors {
+        lt_to_layer_0: lt_to_layer_0 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_TO_0";
+            bindings = <&mo>, <&to BASE>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        tapdance_kana: tapdance_kana {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAPDANCE_KANA";
+            #binding-cells = <0>;
+            bindings = <&kp JP_KANA>, <&kp JP_EISU>, <&sl LOWER>;
+            tapping-term-ms = <400>;
+        };
+
+        WheelScroll: WheelScroll {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            label = "WHEELSCROLL";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            tap-ms = <20>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        BASE_layer {
+            bindings = <
+&none  &kp Q              &kp W         &kp E         &kp R          &kp T                                          &kp Y          &kp U         &kp I      &kp O        &kp P            &none
+&none  &kp A              &kp S         &kp D         &kp F          &kp G                                          &kp H          &kp J         &lt ADJUST K  &kp L     &kp MINUS        &none
+&none  &mt LEFT_SHIFT Z   &kp X         &kp C         &kp V          &kp B         &kp C_MUTE  &kp PRINTSCREEN      &kp N          &kp M         &kp COMMA  &kp PERIOD   &kp SLASH        &none
+&none  &kp LCTRL          &kp LEFT_WIN  &kp LEFT_ALT  &lt LOWER SPACE  &lt ADJUST GRAVE                             &kp BACKSPACE  &lt RAISE ENTER  &none      &none     &kp RIGHT_SHIFT  &none
+            >;
+            sensor-bindings = <&WheelScroll &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        LOWER_layer {
+            bindings = <
+&none  &kp F1         &kp F2      &kp F3      &kp F4         &kp F5                                   &kp F6             &kp F7    &kp F8    &kp F9     &kp F10        &none
+&none  &kp JP_COLON   &kp EXCL    &kp SLASH   &kp JP_LPAREN  &kp JP_LBRACKET                          &kp JP_UNDERSCORE  &mkp MB1  &kp UP    &mkp MB2   &kp SEMICOLON  &none
+&none  &kp SEMI       &kp QMARK   &kp JP_YEN  &kp JP_RPAREN  &kp JP_RBRACKET  &kp JP_QUOTE  &trans    &kp JP_AT          &kp LEFT  &kp DOWN  &kp RIGHT  &kp F11        &none
+&none  &trans         &trans      &trans      &trans         &trans                                   &trans             &trans    &trans    &trans     &mt RSHFT F12  &none
+            >;
+        };
+
+        RAISE_layer {
+            bindings = <
+&none  &kp TAB          &kp N7  &kp N8   &kp N9  &kp MINUS                                &kp RBKT  &trans    &mkp MB3  &trans     &trans     &none
+&none  &kp JP_ASTERISK  &kp N4  &kp N5   &kp N6  &kp JP_PLUS                              &kp RPAR  &mkp MB1  &kp UP    &mkp MB2   &kp COLON  &none
+&none  &mt LSHFT SLASH  &kp N1  &kp N2   &kp N3  &kp EQUAL        &kp JP_BACKQUOTE  &kp DEL  &kp RBRC  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SLASH  &none
+&none  &kp ESC          &kp N0  &kp DOT  &trans  &kp DELETE                               &trans    &trans    &trans    &trans     &trans     &none
+            >;
+        };
+
+        ADJUST_layer {
+            bindings = <
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                   &kp LG(LC(LEFT))  &kp LG(TAB)  &mkp MB3  &trans     &kp LG(LC(RIGHT))  &none
+&none  &trans        &trans        &trans        &trans        &trans                         &mkp MB4          &mkp MB1     &kp UP    &mkp MB2   &mkp MB5           &none
+&none  &trans        &trans        &trans        &trans        &trans         &trans  &to BASE &trans           &kp LEFT     &kp DOWN  &kp RIGHT  &trans             &none
+&none  &trans        &trans        &trans        &to BASE      &trans                         &trans            &trans       &trans    &trans     &trans             &none
+            >;
+        };
+        NAVI_layer {
+            bindings = <
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none    &trans  &trans       &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+            >;
+
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+        };
+        DEBUG_layer {
+            bindings = <
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none    &trans  &trans       &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+            >;
+
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+        };
+        BT_layer {
+            bindings = <
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none    &trans  &trans       &none        &none  &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
+            >;
+
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+        };
+    };
+};
