@@ -119,7 +119,7 @@
 &none  &mt LEFT_SHIFT Z   &kp X         &kp C         &kp V          &kp B         &kp C_MUTE  &kp PRINTSCREEN      &kp N          &kp M         &kp COMMA  &kp PERIOD   &kp SLASH        &none
 &none  &kp LCTRL          &kp LEFT_WIN  &kp LEFT_ALT  &lt LOWER SPACE  &lt ADJUST GRAVE                             &kp BACKSPACE  &lt RAISE ENTER  &none      &none     &kp RIGHT_SHIFT  &none
             >;
-            sensor-bindings = <&WheelScroll &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         LOWER_layer {
@@ -129,6 +129,7 @@
 &none  &kp SEMI       &kp QMARK   &kp JP_YEN  &kp JP_RPAREN  &kp JP_RBRACKET  &kp JP_QUOTE  &trans    &kp JP_AT          &kp LEFT  &kp DOWN  &kp RIGHT  &kp F11        &none
 &none  &trans         &trans      &trans      &trans         &trans                                   &trans             &trans    &trans    &trans     &mt RSHFT F12  &none
             >;
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         RAISE_layer {
@@ -138,6 +139,7 @@
 &none  &mt LSHFT SLASH  &kp N1  &kp N2   &kp N3  &kp EQUAL        &kp JP_BACKQUOTE  &kp DEL  &kp RBRC  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SLASH  &none
 &none  &kp ESC          &kp N0  &kp DOT  &trans  &kp DELETE                               &trans    &trans    &trans    &trans     &trans     &none
             >;
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         ADJUST_layer {
@@ -147,6 +149,7 @@
 &none  &trans        &trans        &trans        &trans        &trans         &trans  &to BASE &trans           &kp LEFT     &kp DOWN  &kp RIGHT  &trans             &none
 &none  &trans        &trans        &trans        &to BASE      &trans                         &trans            &trans       &trans    &trans     &trans             &none
             >;
+            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
         };
         NAVI_layer {
             bindings = <
@@ -181,4 +184,5 @@
     };
 
 };
+
 
