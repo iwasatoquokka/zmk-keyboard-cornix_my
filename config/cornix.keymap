@@ -20,6 +20,7 @@
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 
+
 #define JP_DQUOTE       AT                // "
 #define JP_AMPERSAND    CARET             // &
 #define JP_QUOTE        AMPERSAND          // '
@@ -83,7 +84,7 @@
         esc_and_mhen: esc_and_mhen {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp ESC &kp INT_MUHENKAN>;
+            bindings = <&kp ESC &kp LANGUAGE_2>;
             label = "ESC_AND_MHEN";
         };
 
@@ -142,9 +143,9 @@
 
         LOWER_layer {
             bindings = <
-&none  &kp LS(NUMBER_1)  &kp LS(SLASH)      &kp RIGHT_BRACKET   &kp BSLH              &kp PLUS                                &kp EQUAL    &kp UNDERSCORE  &kp F8       &kp RIGHT_BRACE  &kp PIPE        &none
+&none  &kp LS(NUMBER_1)  &kp LS(SLASH)      &kp RIGHT_BRACKET   &kp BSLH              &kp PLUS                                &kp EQUAL    &kp JP_UNDERSCORE  &kp JP_YEN       &kp RIGHT_BRACE  &kp PIPE        &none
 &none  &kp HASH          &kp DOUBLE_QUOTES  &kp ASTERISK        &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET                        &kp COLON    &kp DOLLAR      &kp AT_SIGN  &kp AMPERSAND    &kp LEFT_BRACE  &none
-&none  &kp LC(C)         &kp LG(V)          &kp SEMICOLON       &kp SINGLE_QUOTE      &kp LS(INT_YEN)   &kp JP_QUOTE  &trans  &kp COMMA    &kp PERIOD      &kp CARET    &kp PERCENT      &esc_and_mhen   &none
+&none  &kp LC(C)         &kp LG(V)          &kp SEMICOLON       &kp SINGLE_QUOTE      &kp JP_PIPE   &kp JP_QUOTE  &trans  &kp COMMA    &kp PERIOD      &kp CARET    &kp PERCENT      &esc_and_mhen   &none
 &none  &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                                   &kp LS(TAB)  &mo 3           &kp TAB      &none            &none           &none
             >;
 
@@ -159,7 +160,9 @@
 &none           &none         &none         &mt LEFT_SHIFT BACKSPACE  &mo 3         &none                     &none           &none           &none          &trans         &trans    &none
             >;
 
-            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&WheelScroll SCRL_DOWN SCRL_UP>,
+                <&WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         ADJUST_layer {
@@ -170,7 +173,9 @@
 &none  &trans     &trans  &trans           &to BASE         &trans                        &trans          &trans          &trans            &trans           &trans   &none
             >;
 
-            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&WheelScroll SCRL_DOWN SCRL_UP>,
+                <&WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         NAVI_layer {
@@ -181,7 +186,9 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&WheelScroll SCRL_DOWN SCRL_UP>,
+                <&WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         DEBUG_layer {
@@ -192,7 +199,9 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&WheelScroll SCRL_DOWN SCRL_UP>,
+                <&WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         BT_layer {
@@ -203,7 +212,9 @@
 &bt BT_SEL 2  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&WheelScroll SCRL_DOWN SCRL_UP>,
+                <&WheelScroll SCRL_DOWN SCRL_UP>;
         };
     };
 };
