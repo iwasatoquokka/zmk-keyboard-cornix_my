@@ -86,6 +86,13 @@
             bindings = <&kp ESC &kp INT_MUHENKAN>;
             label = "ESC_AND_MHEN";
         };
+
+        lessthan_minus: left_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp MINUS>;
+            label = "LEFT_ARROW";
+        };
     };
 
     behaviors {
@@ -125,7 +132,7 @@
 &none           &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q                         &kp Y     &kp G            &kp D             &kp M  &kp P      &esc_and_mhen
 &kp LCTRL       &kp A               &kp O             &kp E                     &kp I            &kp U                         &kp B     &kp N            &kp T             &kp R  &kp S      &kp LEFT_SHIFT
 &kp LEFT_SHIFT  &kp Z               &kp X             &kp C                     &kp V            &kp W     &kp C_MUTE  &kp F1  &kp H     &kp J            &kp K             &kp L  &kp SLASH  &kp LCTRL
-&mkp MB2        &none               &none             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1                      &mkp MB2  &lt RAISE SPACE  &mt LCTRL DELETE  &none  &none      &none
+&mkp MB2        &none               &none             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1                      &mkp MB2  &lt RAISE SPACE  &mt LCTRL DELETE  &mo 6  &none      &none
             >;
 
             sensor-bindings =
@@ -135,10 +142,10 @@
 
         LOWER_layer {
             bindings = <
-&none  &kp F1        &kp F2     &kp F3      &kp F4         &kp F5                                 &kp F6             &kp F7    &kp F8    &kp F9     &kp F10        &none
-&none  &kp JP_COLON  &kp EXCL   &kp SLASH   &kp JP_LPAREN  &kp JP_LBRACKET                        &kp JP_UNDERSCORE  &mkp MB1  &kp UP    &mkp MB2   &kp SEMICOLON  &none
-&none  &kp SEMI      &kp QMARK  &kp JP_YEN  &kp JP_RPAREN  &kp JP_RBRACKET  &kp JP_QUOTE  &trans  &kp JP_AT          &kp LEFT  &kp DOWN  &kp RIGHT  &kp F11        &none
-&none  &trans        &trans     &trans      &trans         &trans                                 &trans             &trans    &trans    &trans     &mt RSHFT F12  &none
+&none  &kp LS(NUMBER_1)  &kp LS(SLASH)      &kp RIGHT_BRACKET   &kp BSLH              &kp PLUS                                &kp EQUAL    &kp UNDERSCORE  &kp F8       &kp RIGHT_BRACE  &kp PIPE        &none
+&none  &kp HASH          &kp DOUBLE_QUOTES  &kp ASTERISK        &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET                        &kp COLON    &kp DOLLAR      &kp AT_SIGN  &kp AMPERSAND    &kp LEFT_BRACE  &none
+&none  &kp LC(C)         &kp LG(V)          &kp SEMICOLON       &kp SINGLE_QUOTE      &kp LS(INT_YEN)   &kp JP_QUOTE  &trans  &kp COMMA    &kp PERIOD      &kp CARET    &kp PERCENT      &esc_and_mhen   &none
+&none  &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                                   &kp LS(TAB)  &mo 3           &kp TAB      &none            &none           &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -146,10 +153,10 @@
 
         RAISE_layer {
             bindings = <
-&none  &kp TAB          &kp N7  &kp N8   &kp N9  &kp MINUS                               &kp RBKT  &trans    &mkp MB3  &trans     &trans     &none
-&none  &kp JP_ASTERISK  &kp N4  &kp N5   &kp N6  &kp JP_PLUS                             &kp RPAR  &mkp MB1  &kp UP    &mkp MB2   &kp COLON  &none
-&none  &mt LSHFT SLASH  &kp N1  &kp N2   &kp N3  &kp EQUAL    &kp JP_BACKQUOTE  &kp DEL  &kp RBRC  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SLASH  &none
-&none  &kp ESC          &kp N0  &kp DOT  &trans  &kp DELETE                              &trans    &trans    &trans    &trans     &trans     &none
+&none           &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3              &kp NUMBER_4  &kp N5                    &none           &kp LC(LEFT)    &kp UP_ARROW   &kp LC(RIGHT)  &kp HOME  &none
+&kp LCTRL       &kp NUMBER_6  &kp N7        &kp N8                    &kp N9        &kp N0                    &none           &kp LEFT        &kp DOWN       &kp RIGHT      &kp END   &none
+&kp LEFT_SHIFT  &none         &none         &kp LEFT_GUI              &none         &kp PERIOD  &none  &none  &kp LANGUAGE_2  &kp LANGUAGE_1  &kp LS(LG(S))  &none          &none     &none
+&none           &none         &none         &mt LEFT_SHIFT BACKSPACE  &mo 3         &none                     &none           &none           &none          &trans         &trans    &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -157,10 +164,10 @@
 
         ADJUST_layer {
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp LG(LC(LEFT))  &kp LG(TAB)  &mkp MB3  &trans     &kp LG(LC(RIGHT))  &none
-&none  &trans        &trans        &trans        &trans        &trans                          &mkp MB4          &mkp MB1     &kp UP    &mkp MB2   &mkp MB5           &none
-&none  &trans        &trans        &trans        &trans        &trans        &trans  &to BASE  &trans            &kp LEFT     &kp DOWN  &kp RIGHT  &trans             &none
-&none  &trans        &trans        &trans        &to BASE      &trans                          &trans            &trans       &trans    &trans     &trans             &none
+&none  &kp F1     &kp F2  &lessthan_minus  &none            &none                         &none           &none           &kp LC(N8)        &kp LC(N5)       &kp F20  &none
+&none  &trans     &trans  &kp LC(SLASH)    &kp LS(LC(DOT))  &kp LS(LA(J))                 &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP      &msc SCRL_RIGHT  &kp F21  &none
+&none  &kp LC(Z)  &trans  &kp LS(LC(C))    &trans           &trans         &trans  &none  &trans          &kp LS(LC(M))   &kp LS(LA(DOWN))  &kp F17          &kp F23  &none
+&none  &trans     &trans  &trans           &to BASE         &trans                        &trans          &trans          &trans            &trans           &trans   &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -190,10 +197,10 @@
 
         BT_layer {
             bindings = <
-&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &trans  &trans  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none         &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&bt BT_SEL 0  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&bt BT_SEL 1  &none  &none  &none  &none  &none  &trans  &trans  &none  &none  &none  &none  &none  &none
+&bt BT_SEL 2  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
