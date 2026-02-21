@@ -129,6 +129,12 @@
         compatible = "zmk,keymap";
 
         BASE_layer {
+            // -----------------------------------------------------------------------------------------
+            // | none |  ,  |  .  |  -  |  f  |  q  |                  |  y  |  g   |  d  |  m  |  P  | ESC  |
+            // | ctrl |  a  |  o  |  e  |  i  |  u  |  MUTE  |  |  UP  |  b  |  n   |  t  |  r  |  s  | CTRL |
+            // | shft |  z  |  x  |  c  |  v  |  v  |  MCLK  |  | DOWN |  h  |  j   |  k  |  l  |  /  | SHFT |
+            // | MB2  | none| none| bcp | ent | MB1 |                  | MB2 | spc  | del | none| none| none |
+
             bindings = <
 &none           &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q                         &kp Y     &kp G            &kp D             &kp M  &kp P      &esc_and_mhen
 &kp LCTRL       &kp A               &kp O             &kp E                     &kp I            &kp U                         &kp B     &kp N            &kp T             &kp R  &kp S      &kp LEFT_SHIFT
@@ -149,7 +155,9 @@
 &none  &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                                   &kp LS(TAB)  &mo 3           &kp TAB      &none            &none           &none
             >;
 
-            sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&WheelScroll SCRL_DOWN SCRL_UP>,
+                <&WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         RAISE_layer {
@@ -218,3 +226,4 @@
         };
     };
 };
+
