@@ -22,9 +22,6 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-rgbled-widget
-      remote: hitsmaxft
-      revision: main
-    - name: zmk-rgbled-widget
       remote: caksoylar
       revision: v0.3-branch
     - name: prospector-zmk-module
@@ -34,3 +31,4 @@ manifest:
   self:
 
     path: config
+
