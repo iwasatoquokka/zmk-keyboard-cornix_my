@@ -105,6 +105,12 @@
 
             tapping-term-ms = <400>;
         };
+        enc_key_press: enc_key_press {
+            compatible = "zmk,behavior-sensor-rotate-key-press";
+            label = "ENC_KEY_PRESS";
+            #sensor-binding-cells = <0>;
+            #key-cells = <1>;
+        };
     };
 
     keymap {
@@ -199,6 +205,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
 
