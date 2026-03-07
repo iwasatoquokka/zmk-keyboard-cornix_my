@@ -110,6 +110,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             label = "WHEELSCROLL";
             #sensor-binding-cells = <2>;
+            #binding-cells = <2>;
             bindings = <&msc>, <&msc>;
 
             tap-ms = <20>;
@@ -222,5 +223,6 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
