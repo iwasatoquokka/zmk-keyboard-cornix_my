@@ -1,11 +1,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include "cornix.dtsi"
+#include "cornix-layouts.dtsi"
 
 / {
     chosen {
         zmk,kscan = &mock_kscan;
-        zmk,matrix_transform = &default_transform;
-        /* ZMKに「この画面を使ってね！」と指定 */
+        zmk,physical-layout = %layout_50;
         zmk,display = &display;
     };
 
@@ -16,7 +15,7 @@
         events = <0>;
     };
 
-    default_transform: matrix_transform {
+    default_transform: keymap_transform_50 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
         rows = <4>;
