@@ -16,4 +16,7 @@ include:
   # Flashing the wrong reset firmware can corrupt the bootloader!
   - board: cornix_left
     shield: settings_reset
+
     artifact-name: reset_cornix
+    # 追加: リセット時は既存の .conf を無視させる
+    cmake-args: -DCONFIG_FILE_NAME=settings_reset
