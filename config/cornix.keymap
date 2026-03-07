@@ -97,15 +97,6 @@
     };
 
     behaviors {
-        lt: lt_new {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&kp>;
-        };
-
         tapdance_kana: tapdance_kana {
             compatible = "zmk,behavior-tap-dance";
             label = "TAPDANCE_KANA";
@@ -124,6 +115,12 @@
             tap-ms = <20>;
         };
     };
+
+    &lt {
+    #binding-cells = <2>;
+    tapping-term-ms = <200>;
+    flavor = "tap-preferred";
+};
 
     keymap {
         compatible = "zmk,keymap";
@@ -226,6 +223,7 @@
         };
     };
 };
+
 
 
 
