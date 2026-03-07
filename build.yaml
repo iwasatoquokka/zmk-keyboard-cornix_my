@@ -1,14 +1,23 @@
----
 include:
-  # Cornix Left (Central) - with trackball listener and LED indicator
+  # Prospector Dongle (Central)
+  - board: seeeduino_xiao_ble
+    shield: cornix_dongle
+    artifact-name: cornix_dongle
+
+  # Cornix Left (Peripheral)
   - board: cornix_left
     shield: cornix_indicator
-    artifact-name: cornix_left_central
+    artifact-name: cornix_left_peripheral
 
-  # Cornix Right (Peripheral) - with LED indicator
+  # Cornix Right (Peripheral)
   - board: cornix_right
     shield: cornix_indicator
-    artifact-name: cornix_right
+    artifact-name: cornix_right_peripheral
+
+  # Settings reset for Dongle
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: reset_dongle
 
   # Settings reset (for troubleshooting)
   # WARNING: Use the correct reset firmware for each device!
