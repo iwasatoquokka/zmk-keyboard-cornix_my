@@ -135,8 +135,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         LOWER_layer {
@@ -148,8 +147,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         RAISE_layer {
@@ -161,8 +159,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         ADJUST_layer {
@@ -174,8 +171,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         NAVI_layer {
@@ -187,8 +183,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         DEBUG_layer {
@@ -200,8 +195,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
 
         BT_layer {
@@ -213,8 +207,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP>,
-                <&WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
         };
     };
 };
@@ -223,7 +216,3 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
-
-
-
-
