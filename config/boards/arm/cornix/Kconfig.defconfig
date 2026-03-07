@@ -1,0 +1,13 @@
+if BOARD_CORNIX_LEFT || BOARD_CORNIX_RIGHT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    bool
+    default n
+    override
+
+config BT_CENTRAL
+    bool
+    default n
+    override
+
+endif
