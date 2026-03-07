@@ -3,6 +3,7 @@ include:
   - board: seeeduino_xiao_ble
     shield: cornix_dongle
     artifact-name: cornix_dongle
+    cmake-args: -DCONFIG_FILE_NAME=cornix_dongle
 
   # Cornix Left (Peripheral)
   - board: cornix_left
@@ -28,4 +29,5 @@ include:
   - board: cornix_left
     shield: settings_reset
     artifact-name: reset_cornix
+
 
