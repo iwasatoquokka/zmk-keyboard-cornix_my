@@ -106,14 +106,14 @@
             tapping-term-ms = <400>;
         };
 
-        WheelScroll: WheelScroll {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            label = "WHEELSCROLL";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc SCRL_UP SCRL_DOWN>, <&msc SCRL_DOWN SCRL_BP>;
-
-            tap-ms = <20>;
-        };
+        //WheelScroll: WheelScroll {
+          //  compatible = "zmk,behavior-sensor-rotate-var";
+            //label = "WHEELSCROLL";
+            //#sensor-binding-cells = <2>;
+            //bindings = <&msc SCRL_UP SCRL_DOWN>, <&msc SCRL_DOWN SCRL_BP>;
+//
+  //          tap-ms = <20>;
+    //    };
     };
 
     keymap {
@@ -133,8 +133,7 @@
 &mkp MB2        &none               &none             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1                      &mkp MB2  &lt RAISE SPACE  &mt LCTRL DELETE  &mo 6  &none      &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         LOWER_layer {
@@ -145,8 +144,7 @@
 &none  &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                                   &kp LS(TAB)  &mo 3           &kp TAB      &none            &none           &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         RAISE_layer {
@@ -157,8 +155,7 @@
 &none           &none         &none         &mt LEFT_SHIFT BACKSPACE  &mo 3         &none                     &none           &none           &none          &trans         &trans    &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         ADJUST_layer {
@@ -169,8 +166,7 @@
 &none  &trans     &trans  &trans           &to BASE         &trans                        &trans          &trans          &trans            &trans           &trans   &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         NAVI_layer {
@@ -181,8 +177,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         DEBUG_layer {
@@ -193,8 +188,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
 
         BT_layer {
@@ -205,8 +199,7 @@
 &bt BT_SEL 2  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings =
-                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
         };
     };
 };
@@ -215,4 +208,5 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
