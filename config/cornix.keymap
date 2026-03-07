@@ -110,8 +110,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             label = "WHEELSCROLL";
             #sensor-binding-cells = <2>;
-            #key-cells = <2>;
-            bindings = <&msc>, <&msc>;
+            bindings = <&msc SCRL_UP SCRL_DOWN>, <&msc SCRL_DOWN SCRL_BP>;
 
             tap-ms = <20>;
         };
@@ -135,7 +134,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
 
         LOWER_layer {
@@ -147,7 +146,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
 
         RAISE_layer {
@@ -159,7 +158,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
 
         ADJUST_layer {
@@ -171,7 +170,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
 
         NAVI_layer {
@@ -183,7 +182,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
 
         DEBUG_layer {
@@ -195,7 +194,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
 
         BT_layer {
@@ -207,7 +206,7 @@
             >;
 
             sensor-bindings =
-                <&WheelScroll SCRL_DOWN SCRL_UP &WheelScroll SCRL_DOWN SCRL_UP>;
+                <&WheelScroll &msc &msc &WheelScroll &msc &msc>;
         };
     };
 };
@@ -216,3 +215,4 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
