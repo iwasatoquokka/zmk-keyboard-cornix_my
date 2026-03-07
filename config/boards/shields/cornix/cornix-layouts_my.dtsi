@@ -20,7 +20,7 @@
         display-name = "LAYOUT_50";
         transform = <&default_transform>;
         sensors = <&left_encoder &right_encoder>;
-        features = <"encoder">;
+        features = "encoder";
         keys
             = <&key_physical_attrs 100 100 0 50 0> , <&key_physical_attrs 100 100 100 50 0> , <&key_physical_attrs 100 100 200 25 0> , <&key_physical_attrs 100 100 300 0 0> , <&key_physical_attrs 100 100 400 25 0> , <&key_physical_attrs 100 100 500 50 0>
             , <&key_physical_attrs 100 100 850 50 0> , <&key_physical_attrs 100 100 950 30 0> , <&key_physical_attrs 100 100 1050 0 0> , <&key_physical_attrs 100 100 1150 33 0> , <&key_physical_attrs 100 100 1250 50 0> , <&key_physical_attrs 100 100 1350 50 0>
