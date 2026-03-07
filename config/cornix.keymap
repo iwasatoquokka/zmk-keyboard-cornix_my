@@ -105,15 +105,6 @@
 
             tapping-term-ms = <400>;
         };
-
-        //WheelScroll: WheelScroll {
-          //  compatible = "zmk,behavior-sensor-rotate-var";
-            //label = "WHEELSCROLL";
-            //#sensor-binding-cells = <2>;
-            //bindings = <&msc SCRL_UP SCRL_DOWN>, <&msc SCRL_DOWN SCRL_BP>;
-//
-  //          tap-ms = <20>;
-    //    };
     };
 
     keymap {
@@ -208,5 +199,6 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
