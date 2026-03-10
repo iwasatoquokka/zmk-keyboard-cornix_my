@@ -96,12 +96,6 @@
             bindings = <&kp LESS_THAN &kp MINUS>;
             label = "LEFT_ARROW";
         };
-
-        enc_key_press: enc_key_press {
-            compatible = "zmk,behavior-sensor-rotate-key-press";
-            #sensor-binding-cells = <0>;
-            #key-cells = <0>;
-        };
     };
 
     behaviors {
@@ -117,6 +111,12 @@
         transparent: transparent {
             compatible = "zmk,behavior-none"; // もしくは behavior-transparent
             #binding-cells = <0>;
+            #key-cells = <0>;
+        };
+
+        dummy_enc: dummy_enc {
+            compatible = "zmk,behavior-sensor-rotate-key-press";
+            #sensor-binding-cells = <0>;
             #key-cells = <0>;
         };
     };
@@ -213,6 +213,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
 
