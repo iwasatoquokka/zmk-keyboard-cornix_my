@@ -84,6 +84,7 @@
         esc_and_mhen: esc_and_mhen {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            #key-cells = <0>;
             bindings = <&kp ESC &kp LANGUAGE_2>;
             label = "ESC_AND_MHEN";
         };
@@ -91,6 +92,7 @@
         lessthan_minus: lessthan_minus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            #key-cells = <0>;
             bindings = <&kp LESS_THAN &kp MINUS>;
             label = "LEFT_ARROW";
         };
@@ -199,6 +201,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
 
