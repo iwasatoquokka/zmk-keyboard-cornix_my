@@ -96,6 +96,12 @@
             bindings = <&kp LESS_THAN &kp MINUS>;
             label = "LEFT_ARROW";
         };
+
+        enc_key_press: enc_key_press {
+            compatible = "zmk,behavior-sensor-rotate-key-press";
+            #sensor-binding-cells = <0>;
+            #key-cells = <1>;
+        };
     };
 
     behaviors {
@@ -207,6 +213,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
 
