@@ -107,6 +107,12 @@
 
             tapping-term-ms = <400>;
         };
+
+        transparent: transparent {
+            compatible = "zmk,behavior-none"; // もしくは behavior-transparent
+            #binding-cells = <0>;
+            #key-cells = <0>;
+        };
     };
 
     keymap {
@@ -201,6 +207,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
 
