@@ -52,11 +52,11 @@ disp_spi: &spi3 {
         write-only;
         #address-cells = <1>;
         #size-cells = <0>;
+        mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 
         st7789: st7789v@0 {
             compatible = "sitronix,st7789v";
             spi-max-frequency = <30000000>;
-            mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
             reg = <0>;
             width = <240>;
             height = <280>;
