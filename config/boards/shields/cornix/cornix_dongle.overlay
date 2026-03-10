@@ -15,7 +15,7 @@
         events = <0>;
     };
 
-    /* バックライト制御用のPWM設定を追加 */
+    /* バックライト制御用のPWM設定 */
     pwmleds {
         compatible = "pwm-leds";
         disp_bl: pwm_led_1 {
@@ -34,11 +34,19 @@
             RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                   RC(3,12)  RC(3,11) RC(3,10) RC(3,9) RC(3,8) RC(3,7)
         >;
     };
+};
 
-    /* MIPI DBI 経由でST7789を定義 */
+/* SPI3の設定（ルートブロックの外側に書くよ！） */
+disp_spi: &spi3 {
+    status = "okay";
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&xiao_d 9 GPIO_ACTIVE_LOW>;
+
     mipi_dbi {
         compatible = "zephyr,mipi-dbi-spi";
-        spi-dev = <&spi3>;
+        spi-dev = <&disp_spi>;
         dc-gpios = <&xiao_d 7 GPIO_ACTIVE_HIGH>;
         reset-gpios = <&xiao_d 3 GPIO_ACTIVE_LOW>;
         write-only;
@@ -110,17 +118,9 @@
     };
 };
 
-disp_spi: &spi3 {
-    status = "okay";
-    pinctrl-0 = <&spi3_default>;
-    pinctrl-1 = <&spi3_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&xiao_d 9 GPIO_ACTIVE_LOW>;
-};
-
 &pwm1 {
-  status = "okay";
-  pinctrl-0 = <&pwm1_default>;
-  pinctrl-1 = <&pwm1_sleep>;
-  pinctrl-names = "default", "sleep";
+    status = "okay";
+    pinctrl-0 = <&pwm1_default>;
+    pinctrl-1 = <&pwm1_sleep>;
+    pinctrl-names = "default", "sleep";
 };
