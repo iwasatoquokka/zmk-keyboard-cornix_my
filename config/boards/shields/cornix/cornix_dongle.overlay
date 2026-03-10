@@ -5,6 +5,7 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &layout_50;
+        zephyr,display = &st7789;
     };
 
     mock_kscan: kscan {
