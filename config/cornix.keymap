@@ -114,10 +114,10 @@
             #key-cells = <0>;
         };
 
-        dummy_enc: dummy_enc {
+        enc_key_press: enc_key_press {
             compatible = "zmk,behavior-sensor-rotate-key-press";
             #sensor-binding-cells = <0>;
-            #key-cells = <0>;
+            #key-cells = <0>; 
         };
     };
 
@@ -138,7 +138,7 @@
 &mkp MB2        &none               &none             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1                      &mkp MB2  &lt RAISE SPACE  &mt LCTRL DELETE  &mo 6  &none      &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
 
         LOWER_layer {
@@ -149,7 +149,7 @@
 &none  &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                                   &kp LS(TAB)  &mo 3           &kp TAB      &none            &none           &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
 
         RAISE_layer {
@@ -160,7 +160,7 @@
 &none           &none         &none         &mt LEFT_SHIFT BACKSPACE  &mo 3         &none                     &none           &none           &none          &trans         &trans    &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
 
         ADJUST_layer {
@@ -171,7 +171,7 @@
 &none  &trans     &trans  &trans           &to BASE         &trans                        &trans          &trans          &trans            &trans           &trans   &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
 
         NAVI_layer {
@@ -182,7 +182,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
 
         DEBUG_layer {
@@ -193,7 +193,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
 
         BT_layer {
@@ -204,7 +204,7 @@
 &bt BT_SEL 2  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+            
         };
     };
 };
@@ -213,6 +213,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     };
+
 
 
 
