@@ -30,16 +30,3 @@
         >;
     };
 };
-
-/ {
-    /* ドングル用ダミーエンコーダー（実体はないけど名前だけ定義） */
-    left_encoder: encoder_left {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-    };
-
-    right_encoder: encoder_right {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-    };
-};
